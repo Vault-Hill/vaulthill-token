@@ -1,22 +1,8 @@
-## Getting Started
-
-Create a project using this example:
-
-```bash
-npx thirdweb create --contract --template forge-starter
-```
-
-You can start editing the page by modifying `contracts/Contract.sol`.
-
-To add functionality to your contracts, you can use the `@thirdweb-dev/contracts` package which provides base contracts and extensions to inherit. The package is already installed with this project. Head to our [Contracts Extensions Docs](https://portal.thirdweb.com/thirdweb-deploy/contract-extensions) to learn more.
-
 ## Building the project
 
 After any changes to the contract, run:
 
 ```bash
-npm run build
-# or
 yarn build
 ```
 
@@ -24,24 +10,21 @@ to compile your contracts. This will also detect the [Contracts Extensions Docs]
 
 ## Deploying Contracts
 
-When you're ready to deploy your contracts, just run one of the following command to deploy you're contracts:
+To deploy contracts, run the below command:
 
 ```bash
-npm run deploy
-# or
 yarn deploy
 ```
+The sequence of deployment is as follows:
+1. Deploy the base contract
+2. Deploy the implementation contract
+3. Run `forge test --match-contract Initialize -vv `to get the contract call data. Ensure to update teh owner address to your address.
+4. Deploy the proxy contract with the implementation contract address and the call data from the previous step.
 
 ## Releasing Contracts
 
-If you want to release a version of your contracts publicly, you can use one of the followings command:
+To release a version of the contracts publicly:
 
 ```bash
-npm run release
-# or
 yarn release
 ```
-
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
