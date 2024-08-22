@@ -27,10 +27,13 @@ to compile your contracts. This will also detect the [Contracts Extensions Docs]
 When you're ready to deploy your contracts, just run one of the following command to deploy you're contracts:
 
 ```bash
-npm run deploy
+npm run deploy <thirdweb-secret-key>
 # or
-yarn deploy
+yarn deploy <thirdweb-secret-key>
 ```
+
+### Sequence of deployment:
+`VHTContractBase` -> `VHTContractImpl` -> `VHTContractProxy`
 
 ## Releasing Contracts
 
