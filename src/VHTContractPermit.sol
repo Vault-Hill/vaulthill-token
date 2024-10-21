@@ -27,7 +27,7 @@ abstract contract VHTContractPermit is VHTContractBase, IERC20Permit {
      * @param name_ The name of the token.
      * @param symbol_ The symbol of the token.
      */
-    function initialize(string memory name_, string memory symbol_) internal virtual override initializer {
+    function initialize(string memory name_, string memory symbol_) internal virtual override onlyInitializing {
         VHTContractBase.initialize(name_, symbol_);
     }
 

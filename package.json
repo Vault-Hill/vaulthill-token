@@ -12,6 +12,7 @@
     "build": "npx thirdweb@latest build",
     "deploy": "npx thirdweb@latest deploy -k",
     "release": "npx thirdweb@latest release",
-    "data:gen": "forge test --match-contract Initialize -vv"
+    "data:gen": "forge test --match-contract Initialize -vv",
+    "test": "forge test --match-path test/VHTContractImplTest.t.sol"
   }
 }

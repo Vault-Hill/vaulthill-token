@@ -124,6 +124,7 @@ contract VHTContractBase is Context, IERC20, IERC20Metadata, Initializable {
      */
     function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
         address owner = _msgSender();
+        require(_allowances[owner][spender] > 0, "ERC20: increase allowance unauthorized");
         _approve(owner, spender, _allowances[owner][spender] + addedValue);
         return true;
     }

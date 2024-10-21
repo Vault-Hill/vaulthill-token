@@ -15,7 +15,18 @@ import "@thirdweb-dev/contracts/extension/Initializable.sol";
  * @title VHTContractImpl
  * @dev Implementation of a mintable and burnable ERC20 token with additional functionality.
  */
-contract VHTContractImpl is Upgradeable, Initializable, ContractMetadata, Multicall, Ownable, VHTContractPermit, IMintableERC20, IBurnableERC20 {
+contract VHTContractImpl is
+    Upgradeable,
+    Initializable,
+    ContractMetadata,
+    Multicall,
+    Ownable,
+    VHTContractPermit,
+    IMintableERC20,
+    IBurnableERC20
+{
+    event Initialized(address defaultAdmin, string name, string symbol);
+
     /**
      * @dev Initializes the contract setting the default admin and token details.
      * @param _defaultAdmin The address of the default admin.
@@ -23,8 +34,10 @@ contract VHTContractImpl is Upgradeable, Initializable, ContractMetadata, Multic
      * @param _symbol The symbol of the token.
      */
     function initialize(address _defaultAdmin, string memory _name, string memory _symbol) public initializer {
+        emit Initialized(_defaultAdmin, _name, _symbol);
         VHTContractPermit.initialize(_name, _symbol);
         _setupOwner(_defaultAdmin);
+        emit Initialized(_defaultAdmin, _name, _symbol);
     }
 
     /**
